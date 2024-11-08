@@ -30,7 +30,6 @@ export default function Search() {
 
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-50 p-4">
-            {/* <h1 className="text-3xl font-bold mb-6 underline">BookQuest</h1> */}
             <div className="flex items-center justify-center mb-6">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -50,25 +49,7 @@ export default function Search() {
             </div>
 
             {/* Search Bar */}
-            {/* <div className="w-full max-w-lg">
-                <input
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search for a book"
-                    className="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button
-                    onClick={fetchBooks}
-                    className="w-full mt-3 p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
-                >
-                    Search
-                </button>
-            </div> */}
-
             <SearchBar query={query} setQuery={setQuery} onSearch={fetchBooks} />
-
-
 
             {/* Error Message */}
             {error && <p className="mt-4 text-red-500">{error}</p>}
@@ -77,27 +58,6 @@ export default function Search() {
             {loading && <p className="mt-4 text-blue-500">Loading...</p>}
 
             {/* Book Results */}
-            {/* <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
-                {books.length > 0 ? (
-                    books.map((book) => (
-                        <div
-                            key={book.key}
-                            className="border border-gray-300 p-4 rounded-lg shadow-md bg-white"
-                        >
-                            <img
-                                src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
-                                alt={book.title}
-                                className="w-full h-64 object-cover mb-4 rounded"
-                            />
-                            <h3 className="text-xl font-semibold">{book.title}</h3>
-                            <p className="text-gray-600">{book.author_name ? book.author_name.join(", ") : "Unknown Author"}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p className="col-span-full text-center text-gray-500">No books found. Try another search.</p>
-                )}
-            </div> */}
-
             <BookList books={books} />
         </div>
     );
